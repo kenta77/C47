@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-typedef char String[1024];
-
-int main(void) 
+void printIntByAddress(int* valAddr)
 {
-    printf("(1)char型：%dバイト\n", (int)sizeof(char));
-    printf("(2)int型：%dバイト\n", (int)sizeof(int));
-    printf("(3)char*型：%dバイト\n", (int)sizeof(char*));
-    printf("(4)int*型：%dバイト\n", (int)sizeof(int*));
+    printf("格納されている値：%d\n", *valAddr);
+}
 
+int main(void)
+{
+    int num = 999;
+    printIntByAddress(&num);
     return 0;
 }
