@@ -1,24 +1,13 @@
+#include <string.h>
 #include <stdio.h>
 
-void funcA(int x) 
+int main(void) 
 {
-    x = 100;
-}
+    int a[4] = {19, 20, 29, 29};
+    int b[4];
+    memcpy(b, a, 16);
+    printf("配列aの2つ目の要素は : %d、%p番地に格納\n", a[1], &a[1]);
+    printf("配列bの2つ目の要素は : %d、%p番地に格納\n", b[1], &b[1]);
 
-void funcB(int x[3])
-{
-    x[0] = 100;
-}
-
-int main(void)
-{
-    int a = 5;
-    int b[3];
-    b[0] = 5;
-
-    funcA(a);
-    funcB(b);
-
-    printf("a=%d, b[0]=%d\n", a, b[0]);
     return 0;
 }
