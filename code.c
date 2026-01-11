@@ -1,13 +1,24 @@
 #include <stdio.h>
 
-void printIntByAddress(int* valAddr)
+void funcA(int x) 
 {
-    printf("格納されている値：%d\n", *valAddr);
+    x = 100;
+}
+
+void funcB(int x[3])
+{
+    x[0] = 100;
 }
 
 int main(void)
 {
-    int num = 999;
-    printIntByAddress(&num);
+    int a = 5;
+    int b[3];
+    b[0] = 5;
+
+    funcA(a);
+    funcB(b);
+
+    printf("a=%d, b[0]=%d\n", a, b[0]);
     return 0;
 }
