@@ -1,13 +1,17 @@
-#include <string.h>
 #include <stdio.h>
 
-int main(void) 
-{
-    int a[4] = {19, 20, 29, 29};
-    int b[4];
-    memcpy(b, a, 16);
-    printf("配列aの2つ目の要素は : %d、%p番地に格納\n", a[1], &a[1]);
-    printf("配列bの2つ目の要素は : %d、%p番地に格納\n", b[1], &b[1]);
+typedef char String[1024];
 
+int main(void)
+{
+    char ages[1024] = {19, 21, 29, 29};
+    String str = "he\0llo";
+    str[9] = 67;
+    printf("%s\n", str);
+
+    for (int i = 0; i < 10; i++) {
+        printf("%d, ", str[i]);
+    }
+    printf("\n");
     return 0;
 }
