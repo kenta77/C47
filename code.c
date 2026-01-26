@@ -1,17 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef char String[1024];
 
-int main(void)
+int main(void) 
 {
-    char ages[1024] = {19, 21, 29, 29};
-    String str = "he\0llo";
-    str[9] = 67;
-    printf("%s\n", str);
+    // 手段①
+    char array[1024] = "C";
+    char* msg1 = array;
+    printf("%s", msg1);
 
-    for (int i = 0; i < 10; i++) {
-        printf("%d, ", str[i]);
-    }
+    // 手段②
+    char* msg2 = (char*)malloc(1024);
+    msg2[0] = 'C';
+    msg2[1] = '\0';
+    printf("%s", msg2);
+    free(msg2);
+
+    // 手段③
+    const char* msg3 = "C";
+    printf("%s", msg3);
+
     printf("\n");
     return 0;
 }
